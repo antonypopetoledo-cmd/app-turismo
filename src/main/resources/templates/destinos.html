@@ -56,7 +56,7 @@
 
             <!-- Logo -->
             <a class="navbar-brand vaotrip-logo"
-               href="/">
+               th:href="@{/}">
                 VaoTrip
             </a>
 
@@ -91,11 +91,8 @@
             <!-- Usuario -->
             <ul class="navbar-nav flex-row vaotrip-user-nav">
 
-                <li class="nav-item">
-                    <a class="nav-link"
-                       href="#">
-                        Login
-                    </a>
+                <li class="nav-item">                    
+                    <a class="nav-link" th:href="@{/login/login-test}">Iniciar Sesión</a>
                 </li>
 
                 <li class="nav-item">
