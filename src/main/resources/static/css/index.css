@@ -1,0 +1,492 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: #212832;
+    background-color: #ffffff;
+}
+
+/* ========================================
+   NAVBAR - VAOTRIP
+   ======================================== */
+
+.vaotrip-navbar {
+    background-color: #ffffff;
+    padding: 4px 0;
+}
+
+/* Contenedor principal */
+.vaotrip-navbar .container {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+.vaotrip-logo {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+
+    color: #181e4b;
+    text-decoration: none;
+}
+
+.vaotrip-logo:hover {
+    color: #181e4b;
+}
+
+
+/* ========================================
+   NAVEGACIÓN PRINCIPAL
+   ======================================== */
+
+.vaotrip-main-nav {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.vaotrip-navbar .nav-link {
+    padding: 6px 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+
+    color: #212832;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.vaotrip-navbar .nav-link:hover {
+    color: #f1a501;
+}
+
+
+/* ========================================
+   LOGIN / REGISTRO / IDIOMA
+   ======================================== */
+
+.vaotrip-user-nav {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vaotrip-user-nav .nav-link {
+    font-size: 0.78rem;
+}
+
+
+/* Registrarse */
+
+.register-link {
+    padding: 6px 13px !important;
+
+    border: 1px solid #212832;
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.register-link:hover {
+    background-color: #212832;
+    color: #ffffff !important;
+}
+
+
+/* Idioma */
+
+.language-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.language-arrow {
+    position: relative;
+    top: -1px;
+
+    font-size: 0.75rem;
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+
+.hero {
+    position: relative;
+    background-color: #ffffff;
+    padding: 0 0 8px;
+    overflow: hidden;
+}
+
+
+/* El Hero será deliberadamente compacto */
+.hero .row {
+    height: 330px;
+    min-height: 0;
+}
+
+
+/* ========================================
+   CONTENIDO IZQUIERDO
+   ======================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* Texto naranja */
+
+.hero-subtitle {
+    margin: 0 0 7px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    color: #df6951;
+
+    text-transform: uppercase;
+}
+
+
+/* ========================================
+   TÍTULO
+   ======================================== */
+
+.hero-title {
+    max-width: 620px;
+
+    margin: 0 0 11px;
+
+    font-family: "Volkhov", serif;
+
+    font-size: 2.55rem;
+    font-weight: 700;
+
+    line-height: 1.02;
+
+    letter-spacing: -1.2px;
+
+    color: #181e4b;
+}
+
+
+/* ========================================
+   DESCRIPCIÓN
+   ======================================== */
+
+.hero-description {
+    max-width: 490px;
+
+    margin: 0 0 15px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 400;
+
+    line-height: 1.5;
+
+    color: #5e6282;
+}
+
+
+/* ========================================
+   BOTONES
+   ======================================== */
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.hero-btn {
+    padding: 9px 17px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+
+    color: #ffffff;
+
+    background-color: #f1a501;
+
+    border: none;
+    border-radius: 7px;
+
+    box-shadow: 0 6px 15px rgba(241, 165, 1, 0.20);
+}
+
+
+.hero-btn:hover {
+    color: #ffffff;
+
+    background-color: #df9700;
+}
+
+
+/* Play */
+
+.hero-play {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #686d77;
+
+    text-decoration: none;
+}
+
+
+.play-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 35px;
+    height: 35px;
+
+    padding-left: 2px;
+
+    color: #ffffff;
+
+    background-color: #df6951;
+
+    border-radius: 50%;
+
+    font-size: 0.55rem;
+
+    box-shadow: 0 5px 12px rgba(223, 105, 81, 0.22);
+}
+
+
+.play-text {
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+
+/* ========================================
+   IMAGEN
+   ======================================== */
+
+.hero-image-container {
+    position: relative;
+
+    height: 310px;
+    min-height: 0;
+}
+
+/* Forma decorativa detrás de la viajera */
+.hero-image-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 430px;
+    height: 430px;
+
+    right: -60px;
+    top: -105px;
+
+    background-color: #fff1da;
+
+    border-radius: 45% 0 45% 55%;
+
+    transform: rotate(-8deg);
+
+    z-index: 0;
+}
+
+
+/*
+   La viajera es deliberadamente más grande
+   que la altura visual del Hero.
+*/
+.hero-img {
+    position: absolute;
+
+    z-index: 2;
+
+    width: auto;
+    height: 520px;
+
+    max-width: none;
+
+    object-fit: contain;
+
+    left: 50%;
+    bottom: -80px;
+
+    transform: translateX(-50%);
+}
+
+/* ========================================
+   TOP DESTINOS
+   ======================================== */
+
+.top-destinations {
+    padding: 25px 0 80px;
+
+    background-color: #ffffff;
+}
+
+
+.destinations-heading {
+    text-align: center;
+}
+
+
+.destinations-subtitle {
+    margin: 0 0 5px;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    color: #5e6282;
+
+    text-transform: uppercase;
+}
+
+
+.destinations-title {
+    margin: 0;
+
+    font-family: "Volkhov", serif;
+
+    font-size: 1.7rem;
+    font-weight: 700;
+
+    color: #14183e;
+}
+
+
+
+/* ========================================
+   LISTA DE DESTINOS
+   ======================================== */
+
+.destinations-list {
+    max-width: 1050px;
+
+    margin: 22px auto 0;
+}
+
+
+/* ========================================
+   TARJETA
+   ======================================== */
+
+.destination-card {
+    background-color: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* Efecto al pasar el mouse */
+
+.destination-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ========================================
+   IMAGEN
+   ======================================== */
+
+.destination-img {
+    display: block;
+
+    width: 100%;
+    height: 180px;
+
+    object-fit: cover;
+}
+
+/* ========================================
+   INFORMACIÓN
+   ======================================== */
+
+.destination-info {
+    padding: 13px 15px 15px;
+}
+
+
+.destination-main {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+}
+
+
+/* Nombre */
+
+.destination-name {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    color: #5e6282;
+}
+
+
+/* Precio */
+
+.destination-price {
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    color: #5e6282;
+
+    white-space: nowrap;
+}
+
