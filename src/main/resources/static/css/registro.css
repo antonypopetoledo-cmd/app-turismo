@@ -1,0 +1,365 @@
+[hidden] {
+    display: none !important;
+}
+
+.registro-page .login-container {
+    align-items: flex-start;
+}
+
+.registro-page .login-visual {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.registro-page .login-form-section {
+    align-items: flex-start;
+    padding: 90px 40px 80px;
+}
+
+.registro-container {
+    max-width: 640px;
+}
+
+.registro-roles {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 30px;
+    padding: 6px;
+
+    background-color: #edf0f4;
+    border-radius: 14px;
+}
+
+.registro-rol {
+    flex: 1;
+    min-height: 44px;
+    padding: 6px 10px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+
+    color: #5e6282;
+    background: transparent;
+
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.registro-rol[aria-selected="true"] {
+    color: #181e4b;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(24, 30, 75, 0.12);
+}
+
+.registro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+}
+
+.registro-full {
+    grid-column: 1 / -1;
+}
+
+.registro-grid > .login-field {
+    min-width: 0;
+}
+
+.registro-label {
+    display: block;
+    margin-bottom: 8px;
+    padding: 0;
+
+    font-size: 0.82rem;
+    font-weight: 400;
+    color: #5e6282;
+}
+
+.registro-subtitulo {
+    margin: 34px 0 22px;
+    padding-bottom: 10px;
+
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #181e4b;
+
+    border-bottom: 1px solid #e3e7ee;
+}
+
+.registro-nota {
+    margin: -6px 0 22px;
+
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #5e6282;
+}
+
+.login-field select,
+.login-field textarea {
+    width: 100%;
+
+    padding: 0 18px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.78rem;
+    color: #181e4b;
+
+    background-color: #edf0f4;
+
+    border: none;
+    border-radius: 12px;
+    outline: none;
+
+    transition: box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.login-field select {
+    height: 52px;
+    cursor: pointer;
+}
+
+.login-field textarea {
+    padding: 14px 18px;
+    line-height: 1.5;
+    resize: vertical;
+}
+
+.login-field textarea::placeholder {
+    color: #9ca3af;
+}
+
+.login-field select:focus,
+.login-field textarea:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(241, 165, 1, 0.35);
+}
+
+.login-field input[type="file"] {
+    height: auto;
+    padding: 14px 16px;
+    cursor: pointer;
+}
+
+.registro-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.login-field .registro-chip {
+    position: relative;
+    display: inline-flex;
+    margin: 0;
+    cursor: pointer;
+}
+
+.login-field .registro-chip input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    opacity: 0;
+}
+
+.registro-chip span {
+    padding: 9px 16px;
+
+    font-size: 0.78rem;
+    color: #5e6282;
+
+    background-color: #edf0f4;
+    border-radius: 999px;
+
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.registro-chip input:checked + span {
+    color: #181e4b;
+    font-weight: 500;
+    background-color: #fff4d6;
+    box-shadow: 0 0 0 2px #f1a501;
+}
+
+.registro-chip input:focus-visible + span {
+    box-shadow: 0 0 0 2px rgba(241, 165, 1, 0.6);
+}
+
+.registro-tipos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+
+    margin: 0 0 8px;
+    padding: 0;
+
+    border: none;
+}
+
+.registro-tipos legend {
+    margin-bottom: 10px;
+}
+
+.registro-tipo {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.registro-tipo input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.registro-tipo span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 64px;
+    padding: 12px 8px;
+
+    font-size: 0.86rem;
+    font-weight: 600;
+    text-align: center;
+    color: #5e6282;
+
+    background-color: #edf0f4;
+    border-radius: 12px;
+
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+.registro-tipo small {
+    font-size: 0.68rem;
+    font-weight: 400;
+}
+
+.registro-tipo input:checked + span {
+    color: #181e4b;
+    background-color: #fff4d6;
+    box-shadow: 0 0 0 2px #f1a501;
+}
+
+.registro-tipo input:focus-visible + span {
+    box-shadow: 0 0 0 2px rgba(241, 165, 1, 0.6);
+}
+
+.registro-tour {
+    margin-bottom: 24px;
+    padding: 24px 22px 0;
+
+    border: 1px solid #e3e7ee;
+    border-radius: 16px;
+}
+
+.registro-tour-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.registro-tour-titulo {
+    margin: 0;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #181e4b;
+}
+
+.registro-tour-quitar {
+    padding: 6px 12px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.76rem;
+    color: #df6951;
+
+    background: transparent;
+    border: 1px solid #df6951;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.registro-tour-quitar:hover {
+    color: #ffffff;
+    background-color: #df6951;
+}
+
+.registro-agregar {
+    display: block;
+    width: 100%;
+    height: 48px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #181e4b;
+
+    background: transparent;
+    border: 2px dashed #f1a501;
+    border-radius: 12px;
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.registro-agregar:hover {
+    background-color: #fff4d6;
+}
+
+.registro-errores {
+    margin: 0 0 24px;
+    padding: 14px 18px 14px 34px;
+
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: #df6951;
+
+    background-color: #fdf1ee;
+    border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+
+    .registro-page .login-form-section {
+        padding: 90px 30px 70px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .registro-page .login-visual {
+        position: relative;
+        height: auto;
+        min-height: 260px;
+    }
+
+    .registro-page .login-form-section {
+        padding: 50px 22px 70px;
+    }
+
+    .registro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registro-tipos {
+        grid-template-columns: 1fr;
+    }
+
+    .registro-tour {
+        padding: 20px 16px 0;
+    }
+}

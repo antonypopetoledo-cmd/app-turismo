@@ -10,7 +10,7 @@
     <!-- Poppins: tipografía utilizada por el diseño de Figma -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Poppins:wght@400;500;600;700&display=swap"
           rel="stylesheet">
 
     <link rel="stylesheet"
@@ -19,6 +19,13 @@
 </head>
 
 <body class="login-page">
+
+    <!-- Nombre de la marca: al presionarlo regresa al catálogo -->
+    <a class="login-brand"
+       th:href="@{/destinos}"
+       href="/destinos">
+        VaoTrip
+    </a>
 
     <main class="login-container">
 
@@ -46,16 +53,22 @@
              ======================================== -->
         <section class="login-form-section">
             <a th:href="@{/}"
-            href="/"
-            accesskey=""class="login-close"
-            aria-label="Cerrar">
-            &times;
+               href="/"
+               class="login-close"
+               aria-label="Cerrar">
+                &times;
             </a>
             <div class="login-form-container">
 
                 <h1 class="login-title">
                     Iniciar sesión
                 </h1>
+
+                <!-- MENSAJE DE REGISTRO EXITOSO -->
+                <p class="login-success"
+                   th:if="${exito}"
+                   th:text="${exito}">
+                </p>
 
                 <!--
                     No modificar action, method ni name.
@@ -113,6 +126,15 @@
                     </button>
 
                 </form>
+
+                <!-- ENLACE A REGISTRO -->
+                <p class="login-register">
+                    ¿No tienes cuenta?
+                    <a th:href="@{/registro/}"
+                       href="/registro/">
+                        Regístrate
+                    </a>
+                </p>
 
             </div>
 
