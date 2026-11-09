@@ -27,7 +27,7 @@
     });
 
     function aplicarTipo() {
-        var elegido = formProveedor.querySelector('input[name="tipo"]:checked');
+        var elegido = formProveedor.querySelector('input[name="type"]:checked');
         var tipo = elegido ? elegido.value : null;
 
         cuerpo.hidden = !tipo;
@@ -51,7 +51,7 @@
         */
     }
 
-    formProveedor.querySelectorAll('input[name="tipo"]').forEach(function (radio) {
+    formProveedor.querySelectorAll('input[name="type"]').forEach(function (radio) {
         radio.addEventListener('change', aplicarTipo);
     });
 
@@ -105,7 +105,7 @@
 
     var tipoInicial = body.dataset.tipo;
     if (tipoInicial) {
-        var radio = formProveedor.querySelector('input[name="tipo"][value="' + tipoInicial + '"]');
+        var radio = formProveedor.querySelector('input[name="type"][value="' + tipoInicial + '"]');
         if (radio) radio.checked = true;
     }
     aplicarTipo();

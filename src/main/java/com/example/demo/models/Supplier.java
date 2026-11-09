@@ -42,10 +42,10 @@ public class Supplier {
 
     @Size(max = 50)
     private String guideIdentifier; // se utiliza para guía independiente
-    
-    @NotBlank
+        
     private String documentNumber;
 
+    @NotBlank
     @Size(max = 11)
     private String ruc;
 

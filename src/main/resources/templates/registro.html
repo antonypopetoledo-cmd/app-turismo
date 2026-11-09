@@ -231,7 +231,7 @@
                             </div>
 
                             <!-- Solo guía -->
-                            <div class="login-field" data-tipos="INDEPENDIENTE" hidden>
+                            <div class="login-field">
                                 <label>
                                     <span>Nombre</span>
                                     <input type="text" name="firstname" required
@@ -239,7 +239,7 @@
                                 </label>
                             </div>
 
-                            <div class="login-field" data-tipos="INDEPENDIENTE" hidden>
+                            <div class="login-field">
                                 <label>
                                     <span>Apellido</span>
                                     <input type="text" name="lastname" required
@@ -261,7 +261,7 @@
                                     <span>País</span>
                                     <select name="country" required>
                                         <option value="" disabled selected>Selecciona tu país</option>
-                                        <option th:each="p : ${paises}" th:value="${p}" th:text="${p}"></option>
+                                        <option th:each="c : ${countries}" th:value="${c}" th:text="${c}"></option>
                                     </select>
                                 </label>
                             </div>

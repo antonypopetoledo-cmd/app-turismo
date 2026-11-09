@@ -32,10 +32,7 @@ public class AuthenticationController {
     @GetMapping("/registro")
     public String register(Model model) {
 
-        model.addAttribute("countries", List.of(
-                "Perú", "Chile", "Argentina", "USA", "Canada",
-                "United Kingdom", "France", "Spain", "Germany", "Italy"
-        ));
+        model.addAttribute("countries", this.countries);
 
         return "registro";
     }

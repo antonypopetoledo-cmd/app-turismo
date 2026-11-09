@@ -27,8 +27,7 @@ public class RegisterSupplierDTO {
     private String brand;
 
     private String guideIdentifier;
-   
-    @NotBlank
+       
     private String documentNumber;
 
     @NotBlank
