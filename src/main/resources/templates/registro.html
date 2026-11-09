@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VaoTrip - Registro</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- estilos.css = diseño base del login (se reutiliza) -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}" href="/css/estilos.css">
+    <link rel="stylesheet" th:href="@{/css/registro.css}" href="/css/registro.css">
+</head>
+
+<body class="login-page registro-page"
+      data-rol="turista"
+      th:attr="data-rol=${rol},data-tipo=${tipoSeleccionado}">
+
+    <!-- Nombre de la marca: lleva al catálogo -->
+    <a class="login-brand" th:href="@{/destinos}" href="/destinos">VaoTrip</a>
+
+    <main class="login-container">
+
+        <!-- ========================================
+             LADO IZQUIERDO (igual que el login)
+             ======================================== -->
+        <section class="login-visual">
+            <div class="login-shape shape-one"></div>
+            <div class="login-shape shape-two"></div>
+
+            <div class="login-photo-container">
+                <img th:src="@{/img/globo-login.jpg}"
+                     src="/img/globo-login.jpg"
+                     alt="Globo aerostático"
+                     class="login-photo">
+            </div>
+        </section>
+
+
+        <!-- ========================================
+             LADO DERECHO
+             ======================================== -->
+        <section class="login-form-section">
+
+            <a th:href="@{/}" href="/" class="login-close" aria-label="Cerrar">&times;</a>
+
+            <div class="login-form-container registro-container">
+
+                <h1 class="login-title">Create account</h1>
+                <div th:if="${message != null}" th:text="${message}"></div>
+
+                <!-- Selector: turista o proveedor -->
+                <div class="registro-roles" role="tablist">
+                    <button type="button" class="registro-rol" role="tab"
+                            data-rol-tab="turista" aria-selected="true">
+                        I'm a tourist
+                    </button>
+                    <button type="button" class="registro-rol" role="tab"
+                            data-rol-tab="proveedor" aria-selected="false">                        
+                        I'm an activities supplier
+                    </button>
+                </div>
+
+                <!-- Errores del backend -->
+                <ul class="registro-errores"
+                    th:if="${errores != null and !errores.isEmpty()}">
+                    <li th:each="e : ${errores}" th:text="${e}"></li>
+                </ul>
+
+
+                <!-- ==================================================
+                     FORMULARIO TURISTA
+                     ================================================== -->
+                <form id="form-turista"
+                      th:action="@{/registro/turista}"
+                      action="/registro/turista"
+                      method="post">
+                    
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+                    <div class="registro-grid">
+
+                        <div class="login-field registro-full">
+                            <label>
+                                <span>Email</span>
+                                <input type="email" name="email" required
+                                       placeholder="Enter your email">
+                            </label>
+                        </div>
+
+                        <div class="login-field">
+                            <label>
+                                <span>Firstname</span>
+                                <input type="text" name="firstname" required
+                                       placeholder="Enter your name">
+                            </label>
+                        </div>
+
+                        <div class="login-field">
+                            <label>
+                                <span>Lastname</span>
+                                <input type="text" name="lastname" required
+                                       placeholder="Enter your lastname">
+                            </label>
+                        </div>
+
+                        <div class="login-field registro-full">
+                            <label>
+                                <span>Contraseña</span>
+                                <input type="password" name="password" required minlength="8"
+                                       autocomplete="new-password"
+                                       placeholder="Mínimo 8 caracteres">
+                            </label>
+                        </div>
+
+                        <div class="login-field">
+                            <label>
+                                <span>Country</span>
+                                <select name="country" required>
+                                    <option value="" disabled selected>Select your country</option>
+                                    <option th:each="c : ${countries}" th:value="${c}" th:text="${c}"></option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="login-field">
+                            <label>
+                                <span>Sex</span>
+                                <select name="sex" required>
+                                    <option value="" disabled selected>Select an option</option>
+                                    <option value="F">Female</option>
+                                    <option value="M">Male</option>
+                                    <option value="O">Other</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <!--
+                        <div class="login-field registro-full">
+                            <span class="registro-label">Languages you speak</span>
+                            <div class="registro-chips">
+                                <label class="registro-chip" th:each="i : ${idiomas}">
+                                    <input type="checkbox" name="idiomas" th:value="${i}">
+                                    <span th:text="${i}"></span>
+                                </label>
+                            </div>
+                        </div>
+                        -->
+
+                        <div class="login-field">
+                            <label>
+                                <span>Passport number</span>
+                                <input type="text" name="passport" required
+                                       pattern="[A-Za-z0-9]{6,12}" maxlength="12"
+                                       placeholder="Example: AB1234567">
+                            </label>
+                        </div>
+
+                        <div class="login-field">
+                            <label>
+                                <span>Phone number (optional)</span>
+                                <input type="tel" name="phone"
+                                       pattern="\+?[0-9 ]{7,15}"
+                                       placeholder="Example: +51 987654321">
+                            </label>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="login-button">Registrarme</button>
+                </form>
+
+
+                <!-- ==================================================
+                     FORMULARIO PROVEEDOR DE ACTIVIDADES
+                     ================================================== -->
+                <form id="form-proveedor"
+                      th:action="@{/registro/proveedor}"
+                      action="/registro/proveedor"
+                      method="post"
+                      enctype="multipart/form-data"
+                      hidden>
+                    
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+                    <!-- Tipo de proveedor: solo una opción -->
+                    <fieldset class="registro-tipos">
+                        <legend class="registro-label">Tipo de proveedor de actividades</legend>
+
+                        <label class="registro-tipo">
+                            <input type="radio" name="type" value="EMPRESA" required>
+                            <span>Empresa</span>
+                        </label>
+                        <label class="registro-tipo">
+                            <input type="radio" name="type" value="INDEPENDIENTE" required>
+                            <span>Independiente<small>Guía</small></span>
+                        </label>
+                        <label class="registro-tipo">
+                            <input type="radio" name="type" value="ONG" required>
+                            <span>ONG</span>
+                        </label>
+                    </fieldset>
+
+                    <!-- Se muestra al elegir el tipo -->
+                    <div id="proveedor-cuerpo" hidden>
+
+                        <h2 class="registro-subtitulo">Datos de la cuenta</h2>
+
+                        <div class="registro-grid">
+
+                            <div class="login-field registro-full">
+                                <label>
+                                    <span>Correo electrónico</span>
+                                    <input type="email" name="email" required
+                                           placeholder="Ingresa tu correo electrónico">
+                                </label>
+                            </div>
+
+                            <!-- Solo empresa y ONG -->
+                            <div class="login-field registro-full" data-tipos="EMPRESA,ONG" hidden>
+                                <label>
+                                    <span>Marca o nombre público</span>
+                                    <input type="text" name="brand" required
+                                           placeholder="Nombre con el que te conocerán los turistas">
+                                </label>
+                            </div>
+
+                            <!-- Solo guía -->
+                            <div class="login-field" data-tipos="INDEPENDIENTE" hidden>
+                                <label>
+                                    <span>Nombre</span>
+                                    <input type="text" name="firstname" required
+                                           placeholder="Ingresa tu nombre">
+                                </label>
+                            </div>
+
+                            <div class="login-field" data-tipos="INDEPENDIENTE" hidden>
+                                <label>
+                                    <span>Apellido</span>
+                                    <input type="text" name="lastname" required
+                                           placeholder="Ingresa tu apellido">
+                                </label>
+                            </div>
+
+                            <div class="login-field registro-full">
+                                <label>
+                                    <span>Contraseña</span>
+                                    <input type="password" name="password" required minlength="8"
+                                           autocomplete="new-password"
+                                           placeholder="Mínimo 8 caracteres">
+                                </label>
+                            </div>
+
+                            <div class="login-field registro-full">
+                                <label>
+                                    <span>País</span>
+                                    <select name="country" required>
+                                        <option value="" disabled selected>Selecciona tu país</option>
+                                        <option th:each="p : ${paises}" th:value="${p}" th:text="${p}"></option>
+                                    </select>
+                                </label>
+                            </div>
+
+                            <!--
+                            <div class="login-field registro-full">
+                                <span class="registro-label">Idiomas en los que ofreces el servicio</span>
+                                <div class="registro-chips">
+                                    <label class="registro-chip" th:each="i : ${idiomas}">
+                                        <input type="checkbox" name="idiomas" th:value="${i}">
+                                        <span th:text="${i}"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            -->
+
+                        </div>
+
+                        <h2 class="registro-subtitulo">Registro y contacto</h2>
+
+                        <div class="registro-grid">
+
+                            <!-- Solo guía -->
+                            <div class="login-field registro-full" data-tipos="INDEPENDIENTE" hidden>
+                                <label>
+                                    <span>Identificador de registro como guía</span>
+                                    <input type="text" name="guideIdentifier" required
+                                           placeholder="Ingresa tu identificador de guía">
+                                </label>
+                            </div>
+
+                            <div class="login-field registro-full" data-tipos="INDEPENDIENTE" hidden>
+                                <label>
+                                    <span>DNI o carné de extranjería</span>
+                                    <input type="text" name="documentNumber" required
+                                           pattern="[A-Za-z0-9]{8,12}" maxlength="12"
+                                           placeholder="Ingresa tu documento de identidad">
+                                </label>
+                            </div>
+
+                            <div class="login-field">
+                                <label>
+                                    <span>RUC / RUS</span>
+                                    <input type="text" name="ruc" required
+                                           inputmode="numeric" pattern="[0-9]{11}" maxlength="11"
+                                           placeholder="11 dígitos">
+                                </label>
+                            </div>
+
+                            <div class="login-field">
+                                <label>
+                                    <span>Número de celular</span>
+                                    <input type="tel" name="phone" required
+                                           pattern="\+?[0-9 ]{7,15}"
+                                           placeholder="Ej: +51 987654321">
+                                </label>
+                            </div>
+
+                            <div class="login-field registro-full">
+                                <label>
+                                    <span>URL del negocio</span>
+                                    <input type="url" name="businessUrl" required
+                                           placeholder="https://www.minegocio.com">
+                                </label>
+                            </div>
+
+                        </div>
+
+                        <!--
+                        <h2 class="registro-subtitulo">Tus tours</h2>
+
+                        <p class="registro-nota">
+                            Los comentarios y la calificación de tus tours los dejan los turistas
+                            y aparecerán en tu perfil público, donde todos podrán verlos.
+                        </p>
+
+                        <div id="tours-lista"></div>
+
+                        <button type="button" id="tour-agregar" class="registro-agregar">
+                            + Agregar otro tour
+                        </button>
+                        -->
+
+                    </div>
+
+                    <button type="submit" class="login-button">Sign up</button>
+                </form>
+
+
+                <p class="login-register">
+                    ¿Ya tienes cuenta?
+                    <a th:href="@{/login}" href="/login">Login</a>
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+
+    <!-- ==================================================
+         PLANTILLA DE UN TOUR (la clona registro.js)
+         "__i__" se reemplaza por el número del tour
+         
+    <template id="tour-template">
+        <article class="registro-tour">
+
+            <header class="registro-tour-cabecera">
+                <h3 class="registro-tour-titulo">Tour 1</h3>
+                <button type="button" class="registro-tour-quitar">Quitar</button>
+            </header>
+
+            <div class="registro-grid">
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Nombre del tour</span>
+                        <input type="text" name="tours[__i__].nombre" required
+                               placeholder="Ej: Sobrevuelo de las Líneas de Nazca">
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Itinerario</span>
+                        <textarea name="tours[__i__].itinerario" rows="4" required
+                                  placeholder="Describe el recorrido paso a paso"></textarea>
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Mapa (enlace de Google Maps)</span>
+                        <input type="url" name="tours[__i__].mapa" required
+                               placeholder="https://maps.google.com/...">
+                    </label>
+                </div>
+
+                <div class="login-field">
+                    <label>
+                        <span>Lugar de inicio o partida</span>
+                        <input type="text" name="tours[__i__].lugarInicio" required
+                               placeholder="Ej: Plaza de Armas">
+                    </label>
+                </div>
+
+                <div class="login-field">
+                    <label>
+                        <span>Hora de inicio o partida</span>
+                        <input type="time" name="tours[__i__].horaInicio" required>
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Lugar de destino o llegada</span>
+                        <input type="text" name="tours[__i__].lugarDestino" required
+                               placeholder="Ej: Mirador de Nazca">
+                    </label>
+                </div>
+
+                <div class="login-field">
+                    <label>
+                        <span>Duración del servicio (horas)</span>
+                        <input type="number" name="tours[__i__].duracionHoras" required
+                               min="0.5" step="0.5" placeholder="Ej: 4">
+                    </label>
+                </div>
+
+                <div class="login-field">
+                    <label>
+                        <span>Aforo de turistas</span>
+                        <input type="number" name="tours[__i__].aforo" required
+                               min="1" step="1" placeholder="Ej: 12">
+                    </label>
+                </div>
+
+                <div class="login-field">
+                    <label>
+                        <span>Precio por turista (S/)</span>
+                        <input type="number" name="tours[__i__].precio" required
+                               min="0" step="0.01" placeholder="Ej: 150.00">
+                    </label>
+                </div>
+
+                <div class="login-field">
+                    <label>
+                        <span>Costos adicionales</span>
+                        <input type="text" name="tours[__i__].costosAdicionales" required
+                               placeholder="Ej: Entrada S/ 15 (o Ninguno)">
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Opciones incluidas</span>
+                        <textarea name="tours[__i__].incluye" rows="3" required
+                                  placeholder="Una por línea&#10;Transporte&#10;Almuerzo"></textarea>
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Exclusiones</span>
+                        <textarea name="tours[__i__].excluye" rows="3" required
+                                  placeholder="Una por línea&#10;Propinas&#10;Bebidas"></textarea>
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Necesidades recomendadas</span>
+                        <textarea name="tours[__i__].recomendaciones" rows="3" required
+                                  placeholder="Una por línea&#10;Protector solar&#10;Zapatillas cómodas"></textarea>
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Reconocimiento previo</span>
+                        <textarea name="tours[__i__].reconocimiento" rows="3" required
+                                  placeholder="Una por línea&#10;Llegar 15 minutos antes&#10;Presentar pasaporte"></textarea>
+                    </label>
+                </div>
+
+                <div class="login-field registro-full">
+                    <label>
+                        <span>Imágenes del tour</span>
+                        <input type="file" name="tours[__i__].imagenes"
+                               accept="image/jpeg,image/png,image/webp" multiple required>
+                    </label>
+                </div>
+
+            </div>
+        </article>
+    </template>
+    ================================================== -->
+
+    <script th:src="@{/js/registro.js}" src="/js/registro.js"></script>
+</body>
+</html>

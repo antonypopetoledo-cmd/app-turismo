@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VaoTrip - Logout</title>
+
+    <!-- Poppins: tipografía utilizada por el diseño de Figma -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          th:href="@{/css/estilos.css}"
+          href="/css/estilos.css">
+</head>
+
+<body class="login-page">
+
+    <main class="login-container">
+
+        <!-- ========================================
+             LADO IZQUIERDO
+             ======================================== -->
+        <section class="login-visual">
+
+            <!-- Formas decorativas inspiradas en Figma -->
+            <div class="login-shape shape-one"></div>
+            <div class="login-shape shape-two"></div>
+
+            <div class="login-photo-container">
+                <img th:src="@{/img/globo-login.jpg}"
+                     src="/img/globo-login.jpg"
+                     alt="Globo aerostático"
+                     class="login-photo">
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             LADO DERECHO
+             ======================================== -->
+        <section class="login-form-section">
+            <a th:href="@{/}"
+            href="/"
+            class="login-close"
+            aria-label="Return">
+            &times;
+            </a>
+            <div class="login-form-container">
+
+                <h1 class="login-title">
+                    Logout
+                </h1>
+
+                <!--
+                    No modificar action, method ni name.
+                    Son utilizados por el backend.
+                -->
+                <form id="login-form"
+                      th:action="@{/logout}"
+                      method="post">
+
+                    <button type="submit"
+                            class="login-button">
+                        Logout
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
